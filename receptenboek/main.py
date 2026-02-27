@@ -17,9 +17,9 @@ def main():
     recept2 = Recept("Pasta Pesto", "Pasta met zelfgemaakte pesto.")
     
     recept2.voeg_ingredient_toe(Ingredient("pasta", 100, "gram", 300))
-    recept2.voeg_ingredient_toe(Ingredient("basilicum", 50, "gram", 100))
+    recept2.voeg_ingredient_toe(Ingredient("basilicum", 50, "gram", 10))
     recept2.voeg_ingredient_toe(Ingredient("parmezaanse kaas", 30, "gram", 400))
-    recept2.voeg_ingredient_toe(Ingredient("pijnboompitten", 20, "gram"))
+    recept2.voeg_ingredient_toe(Ingredient("pijnboompitten", 20, "gram", 40))
 
     recept2.voeg_stap_toe(Stap("Kook de pasta volgens de aanwijzingen op de verpakking."))
     recept2.voeg_stap_toe(Stap("Maak de pesto door basilicum, parmezaanse kaas en pijnboompitten te mengen."))
