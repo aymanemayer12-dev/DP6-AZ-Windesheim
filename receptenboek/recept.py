@@ -14,6 +14,12 @@ class Recept:
     def voeg_stap_toe(self, stap):
         self.__stappen.append(stap)
 
+    def bereken_calorieen(self):
+        totaal_kcal = 0
+        for ingredient in self.__ingredient_list:
+            totaal_kcal += ingredient.get_kcal()
+        return totaal_kcal
+
     def toon_recept(self):
         print(f"\n=== {self.__naam} ===")
         print(self.__omschrijving)
@@ -25,3 +31,4 @@ class Recept:
         print("\nBereidingsstappen:")
         for i, stap in enumerate(self.__stappen, start=1):
             print(f"{i}. {stap}")
+        print(f"\nTotale calorieën: {self.bereken_calorieen()} kcal")
