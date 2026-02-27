@@ -5,20 +5,26 @@ from stap import Stap
 def main():
     recepten = []
 
-    # Recept 1
     recept1 = Recept("Kip Kerrie", "Kip kerrie zonder pakjes en zakjes.")
-    recept1.voeg_ingredient_toe(Ingredient("kip", 500, "gram", 600))
+    
+    kip = Ingredient("kip", 500, "gram", 600)
+    kip.set_plantaardig_alternatief("vegetarische kipstukjes")
+    recept1.voeg_ingredient_toe(kip)
+
     recept1.voeg_ingredient_toe(Ingredient("rijst", 100, "gram", 300))
 
     recept1.voeg_stap_toe(Stap("Snijd de kip in blokjes."))
     recept1.voeg_stap_toe(Stap("Bak de kip gaar in een pan."))
 
-    # Recept 2
     recept2 = Recept("Pasta Pesto", "Pasta met zelfgemaakte pesto.")
     
     recept2.voeg_ingredient_toe(Ingredient("pasta", 100, "gram", 300))
     recept2.voeg_ingredient_toe(Ingredient("basilicum", 50, "gram", 10))
-    recept2.voeg_ingredient_toe(Ingredient("parmezaanse kaas", 30, "gram", 400))
+
+    kaas = Ingredient("parmezaanse kaas", 30, "gram", 400)
+    kaas.set_plantaardig_alternatief("vegan parmezaan")
+    recept2.voeg_ingredient_toe(kaas)
+
     recept2.voeg_ingredient_toe(Ingredient("pijnboompitten", 20, "gram", 40))
 
     recept2.voeg_stap_toe(Stap("Kook de pasta volgens de aanwijzingen op de verpakking."))
@@ -27,7 +33,6 @@ def main():
     stap_met_tip.voeg_tip_toe("Voeg een scheutje olijfolie toe aan de pesto voor een romigere smaak.")
     recept2.voeg_stap_toe(stap_met_tip)
 
-    # Recept 3
     recept3 = Recept("Tropical Cheesecake Taco's", "Cheesecake taco's met een tropische twist.")
 
     recept3.voeg_ingredient_toe(Ingredient("Debic Cheesecake", 5, "dL", 500))
@@ -52,7 +57,6 @@ def main():
     recepten.append(recept2)
     recepten.append(recept3)
 
-    # Overzicht tonen
     print("Overzicht recepten:")
     for i, recept in enumerate(recepten, start=1):
         print(f"{i}. {recept.get_naam()}")
@@ -63,11 +67,13 @@ def main():
         if 1 <= keuze <= len(recepten):
             gekozen_recept = recepten[keuze - 1]
 
-            # 🔥 FR-2
             aantal = int(input("Voor hoeveel personen? "))
             gekozen_recept.set_aantal_personen(aantal)
 
-            # Recept tonen
+            plant_keuze = input("Wil je de plantaardige versie? (ja/nee): ").lower()
+            if plant_keuze == "ja":
+                gekozen_recept.gebruik_plantaardige_versie()
+
             gekozen_recept.toon_recept()
 
         else:

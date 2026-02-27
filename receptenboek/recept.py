@@ -32,6 +32,10 @@ class Recept:
         for ingredient in self.__ingredient_list:
             totaal_kcal += ingredient.get_kcal()
         return totaal_kcal
+    
+    def gebruik_plantaardige_versie(self):
+        for ingredient in self.__ingredient_list:
+            ingredient.gebruik_plantaardig()
 
     def toon_recept(self):
         print(f"\n=== {self.__naam} ===")
