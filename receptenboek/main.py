@@ -25,7 +25,7 @@ def main():
     recept2.voeg_stap_toe(Stap("Maak de pesto door basilicum, parmezaanse kaas en pijnboompitten te mengen."))
     recept2.voeg_stap_toe(Stap("Meng de pesto door de gekookte pasta."))
 
-    #Recept 3
+    # Recept 3
     recept3 = Recept("Tropical Cheesecake Taco's", "Cheesecake taco's met een tropische twist.")
 
     recept3.voeg_ingredient_toe(Ingredient("Debic Cheesecake", 5, "dL", 500))
@@ -36,12 +36,11 @@ def main():
     recept3.voeg_ingredient_toe(Ingredient("Rode peper", 0.16, "stuk", 20))
 
     recept3.voeg_stap_toe(Stap("Houd de fles Debic cheesecake onder de warme kraan zodat de inhoud licht smelt."))
-    recept3.voeg_stap_toe(Stap("Schenk in de kom van de planeetmenger en klop de cheesecake in 5 minuten zeer luchtig. Optioneel kun je dit ook doen met de handmixer."))
-    recept3.voeg_stap_toe(Stap("Snijd ondertussen de rode peper ragfijn. Houd enkele topjes Thaise basilicum apart en snijd de rest van de blaadjes ragfijn. Rooster de kokosflakes in een droge pan."))
-    recept3.voeg_stap_toe(Stap("Voeg de mangopuree toe aan de cheesecake en laat nog kort kloppen. Meng er de Thaise basilicum en de rode peper naar smaak doorheen"))
-    recept3.voeg_stap_toe(Stap("Schep de massa in een spuitzak met een gekarteld mondje en spuit de massa in de chocoladetaco’s. Spuit aan de buitenrand de massa als een mooi patroon erop."))
-    recept3.voeg_stap_toe(Stap("Bestrooi met de geroosterde kokosflakes en garneer naar eigen inzicht met de topjes Thaise basilicum en mango-passie crunch."))
-
+    recept3.voeg_stap_toe(Stap("Schenk in de kom van de planeetmenger en klop de cheesecake in 5 minuten zeer luchtig."))
+    recept3.voeg_stap_toe(Stap("Snijd ondertussen de rode peper ragfijn en rooster de kokosflakes."))
+    recept3.voeg_stap_toe(Stap("Voeg de mangopuree toe en meng alles goed door."))
+    recept3.voeg_stap_toe(Stap("Spuit de massa in de taco’s."))
+    recept3.voeg_stap_toe(Stap("Garneer met kokosflakes en basilicum."))
 
     recepten.append(recept1)
     recepten.append(recept2)
@@ -52,11 +51,24 @@ def main():
     for i, recept in enumerate(recepten, start=1):
         print(f"{i}. {recept.get_naam()}")
 
-    keuze = int(input("Kies een receptnummer: "))
-    if 1 <= keuze <= len(recepten):
-        recepten[keuze - 1].toon_recept()
-    else:
-        print("Ongeldige keuze.")
+    try:
+        keuze = int(input("Kies een receptnummer: "))
+
+        if 1 <= keuze <= len(recepten):
+            gekozen_recept = recepten[keuze - 1]
+
+            # 🔥 FR-2
+            aantal = int(input("Voor hoeveel personen? "))
+            gekozen_recept.set_aantal_personen(aantal)
+
+            # Recept tonen
+            gekozen_recept.toon_recept()
+
+        else:
+            print("Ongeldige keuze.")
+
+    except ValueError:
+        print("Voer een geldig nummer in.")
 
 if __name__ == "__main__":
     main()
