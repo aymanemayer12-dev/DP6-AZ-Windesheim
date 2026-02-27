@@ -45,5 +45,7 @@ class Recept:
         print("\nBereidingsstappen:")
         for i, stap in enumerate(self.__stappen, start=1):
             print(f"{i}. {stap}")
+            if stap.get_tip():
+                print(f"   Tip: {stap.get_tip()}")
 
         print(f"\nTotale calorieën: {self.bereken_calorieen()} kcal")

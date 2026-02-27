@@ -23,7 +23,9 @@ def main():
 
     recept2.voeg_stap_toe(Stap("Kook de pasta volgens de aanwijzingen op de verpakking."))
     recept2.voeg_stap_toe(Stap("Maak de pesto door basilicum, parmezaanse kaas en pijnboompitten te mengen."))
-    recept2.voeg_stap_toe(Stap("Meng de pesto door de gekookte pasta."))
+    stap_met_tip = Stap("Roer de pesto door de gekookte pasta.")
+    stap_met_tip.voeg_tip_toe("Voeg een scheutje olijfolie toe aan de pesto voor een romigere smaak.")
+    recept2.voeg_stap_toe(stap_met_tip)
 
     # Recept 3
     recept3 = Recept("Tropical Cheesecake Taco's", "Cheesecake taco's met een tropische twist.")
@@ -37,7 +39,11 @@ def main():
 
     recept3.voeg_stap_toe(Stap("Houd de fles Debic cheesecake onder de warme kraan zodat de inhoud licht smelt."))
     recept3.voeg_stap_toe(Stap("Schenk in de kom van de planeetmenger en klop de cheesecake in 5 minuten zeer luchtig."))
-    recept3.voeg_stap_toe(Stap("Snijd ondertussen de rode peper ragfijn en rooster de kokosflakes."))
+
+    stap_met_tip = Stap("Snijd ondertussen de rode peper ragfijn en rooster de kokosflakes.")
+    stap_met_tip.voeg_tip_toe("Rooster de kokosflakes op laag vuur zodat ze niet verbranden.")
+    recept3.voeg_stap_toe(stap_met_tip)
+
     recept3.voeg_stap_toe(Stap("Voeg de mangopuree toe en meng alles goed door."))
     recept3.voeg_stap_toe(Stap("Spuit de massa in de taco’s."))
     recept3.voeg_stap_toe(Stap("Garneer met kokosflakes en basilicum."))
