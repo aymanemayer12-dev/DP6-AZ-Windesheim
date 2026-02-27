@@ -16,7 +16,7 @@ def main():
     # Recept 2
     recept2 = Recept("Pasta Pesto", "Pasta met zelfgemaakte pesto.")
     
-    recept2.voeg_ingredient_toe(Ingredient("pasta", 200, "gram"))
+    recept2.voeg_ingredient_toe(Ingredient("pasta", 100, "gram"))
     recept2.voeg_ingredient_toe(Ingredient("basilicum", 50, "gram"))
     recept2.voeg_ingredient_toe(Ingredient("parmezaanse kaas", 30, "gram"))
     recept2.voeg_ingredient_toe(Ingredient("pijnboompitten", 20, "gram"))
@@ -30,10 +30,10 @@ def main():
 
     recept3.voeg_ingredient_toe(Ingredient("Debic Cheesecake", 5, "dL"))
     recept3.voeg_ingredient_toe(Ingredient("Mangopuree", 1, "dL"))
-    recept3.voeg_ingredient_toe(Ingredient("Taco schelpen", 8, "stuks"))
+    recept3.voeg_ingredient_toe(Ingredient("Taco schelpen", 4, "stuks"))
     recept3.voeg_ingredient_toe(Ingredient("Verse basilicum", 2, "takjes"))
     recept3.voeg_ingredient_toe(Ingredient("Kokosflakes", 4, "el"))
-    recept3.voeg_ingredient_toe(Ingredient("Rode peper", "1/6", "stuk"))
+    recept3.voeg_ingredient_toe(Ingredient("Rode peper", 0.16, "stuk"))
 
     recept3.voeg_stap_toe(Stap("Houd de fles Debic cheesecake onder de warme kraan zodat de inhoud licht smelt."))
     recept3.voeg_stap_toe(Stap("Schenk in de kom van de planeetmenger en klop de cheesecake in 5 minuten zeer luchtig. Optioneel kun je dit ook doen met de handmixer."))
