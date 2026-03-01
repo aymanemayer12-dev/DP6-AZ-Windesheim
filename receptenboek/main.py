@@ -2,6 +2,7 @@ from recept import Recept
 from ingredient import Ingredient
 from stap import Stap
 
+
 def maak_start_recepten():
     recepten = []
 
@@ -88,6 +89,55 @@ def toon_recept_flow(recepten):
         print("Foutieve invoer.")
 
 
+def voeg_recept_toe(recepten):
+    naam = input("Naam van het recept: ")
+    omschrijving = input("Omschrijving: ")
+
+    nieuw_recept = Recept(naam, omschrijving)
+
+    while True:
+        try:
+            ing_naam = input("Ingrediënt naam: ")
+            hoeveelheid = float(input("Hoeveelheid: "))
+            eenheid = input("Eenheid: ")
+            kcal = float(input("Aantal kcal: "))
+        except ValueError:
+            print("Foutieve invoer.")
+            continue
+
+        ingredient = Ingredient(ing_naam, hoeveelheid, eenheid, kcal)
+
+        plant = input("Plantaardig alternatief toevoegen? (ja/nee): ").lower()
+        if plant == "ja":
+            alternatief = input("Naam plantaardig alternatief: ")
+            ingredient.set_plantaardig_alternatief(alternatief)
+
+        nieuw_recept.voeg_ingredient_toe(ingredient)
+
+        meer = input("Nog een ingrediënt toevoegen? (ja/nee): ").lower()
+        if meer != "ja":
+            break
+
+    while True:
+        beschrijving = input("Stap beschrijving: ")
+        stap = Stap(beschrijving)
+
+        tip_keuze = input("Tip toevoegen? (ja/nee): ").lower()
+        if tip_keuze == "ja":
+            tip = input("Voer tip in: ")
+            stap.voeg_tip_toe(tip)
+
+        nieuw_recept.voeg_stap_toe(stap)
+
+        meer_stappen = input("Nog een stap toevoegen? (ja/nee): ").lower()
+        if meer_stappen != "ja":
+            break
+
+    recepten.append(nieuw_recept)
+    print("Recept toegevoegd.")
+    nieuw_recept.toon_recept()
+
+
 def main():
     recepten = maak_start_recepten()
 
@@ -101,13 +151,10 @@ def main():
 
         if keuze == "1":
             toon_recept_flow(recepten)
-
         elif keuze == "2":
-            print("Toevoegen volgt.")
-
+            voeg_recept_toe(recepten)
         elif keuze == "3":
             break
-
         else:
             print("Foutieve invoer. Kies 1, 2 of 3.")
 
