@@ -5,6 +5,7 @@ class Ingredient:
         self.__eenheid = eenheid
         self.__kcal = kcal
         self.__basis_hoeveelheid = hoeveelheid
+        self.__basis_kcal = kcal
 
         self.__plantaardig_alternatief = None
         self.__gebruik_alternatief = False
@@ -25,6 +26,7 @@ class Ingredient:
 
     def update_hoeveelheid(self, aantal_personen):
         self.__hoeveelheid = self.__basis_hoeveelheid * aantal_personen
+        self.__kcal = self.__basis_kcal * aantal_personen
 
     def set_plantaardig_alternatief(self, alternatief_naam):
         self.__plantaardig_alternatief = alternatief_naam
