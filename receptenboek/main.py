@@ -1,7 +1,7 @@
 from recept import Recept
 from ingredient import Ingredient
 from stap import Stap
-
+from pdf_export import exporteer_recept_naar_pdf
 
 def maak_start_recepten():
     recepten = []
@@ -76,11 +76,15 @@ def toon_recept_flow(recepten):
 
             gekozen_recept.toon_recept()
 
-            vervolg = input("\n1. Verwijderen\n2. Terug\nMaak een keuze: ")
+            vervolg = input("\n1. Verwijderen\n2. PDF export\n3. Terug\nMaak een keuze: ")
 
             if vervolg == "1":
                 recepten.remove(gekozen_recept)
                 print("Recept verwijderd.")
+            elif vervolg == "2":
+                exporteer_recept_naar_pdf(gekozen_recept)
+            elif vervolg == "3":
+                return
 
         else:
             print("Ongeldige keuze.")
